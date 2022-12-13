@@ -23,13 +23,17 @@ When used with TPUs, datasets need to be stored in a Google Cloud Storage bucket
 Google Cloud Store Path :  gs://kds-815d280b11fe375202da79512bafaf620b4095ed95aae36da10b22b1
 
 Number of training images : 12753 
+
 Number of validation images : 3712 
+
 Number of test images : 7382
 
 The data has 12753 training images, 3712 validation images and 7382 test images. 
 
 Training dataset has (12753, 512, 512, 3) images data and (12753,) label data.
+
 Validation dataset has (3712, 512, 512, 3) images data and (3712,) label data. 
+
 Test dataset has (7382, 512, 512, 3) images data and (7382,) id data. 
 
 The objective is to predict flower type(label data) of test images.
