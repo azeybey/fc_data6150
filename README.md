@@ -1,10 +1,10 @@
 
 ## Flower Classification using TPU - Data 6150 Class Term Project
 
-This project is developed for final project of Data Science Foundation class at Wentworth Institution of Technologies.
+This project is developed for final project of Data Science Foundation class at Wentworth Institute of Technology.
 
 ## Introduction
-The objective of this project is to build a machine learning model that identifies the type of flowers in a dataset of images. 
+The objective of this project is to build a machine learning model that identifies the type of flower in a given image. 
 
 This project is inspired by the [the Kaggle TPU Competition](https://www.kaggle.com/competitions/tpu-getting-started/) [1]. 
 
