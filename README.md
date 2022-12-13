@@ -8,7 +8,7 @@ The objective of this project is to build a machine learning model that identifi
 
 This project is inspired by the [the Kaggle TPU Competition](https://www.kaggle.com/competitions/tpu-getting-started/) [1]. 
 
-I used Tensor Processing Units to accelerate my project. Tensor Processing Unit (TPU) is an AI accelerator application-specific integrated circuit (ASIC) developed by Google for neural network machine learning, using Google's own TensorFlow software [2]. They were developed (and first used) by Google to process large image databases, such as extracting all the text from Street View. 
+I used Tensor Processing Units to train my model. Tensor Processing Unit (TPU) is an AI accelerator application-specific integrated circuit (ASIC) developed by Google for neural network machine learning, using Google's own TensorFlow software [2]. They were developed (and first used) by Google to process large image databases, such as extracting all the text from Street View. 
 
 Furtunetely, Kaggle offers accessing to 30 hours of free TPU time every week for its users. So, I deploy my notebook to Kaggle to utilize its processing power.
 
