@@ -67,11 +67,13 @@ Transfer learning (TL) is a research problem in machine learning (ML) that focus
 The code is at https://www.kaggle.com/code/abdurrahmanzeybey/flower-classification-data-6150
 
 Training Process:
+
 During 15 iteration of training, learning rate starts at 0.000050 and ends at 0.000019. Training and validation accuracy improvement:
 
 <img width="378" alt="Screen Shot 2022-12-13 at 13 38 26" src="https://user-images.githubusercontent.com/12528641/207417492-fc1073cd-9521-42c0-8e54-c8e8860069b0.png">
 
 Prediction and Submission:
+
 Test data comes with unlabeled, so I predict its labels and submit them to the Kaggle.
 
 <img width="185" alt="Screen Shot 2022-12-13 at 13 40 18" src="https://user-images.githubusercontent.com/12528641/207417839-9fc6586b-c17e-4afe-a92f-6f8962c1790a.png">
