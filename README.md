@@ -97,7 +97,7 @@ On the other hand, if I had enough time, I could work on data augmentation matri
 
 ## Summary
 
-This project deploys a pre-trained CNN - Deep Learnin model called Xception to predict flowers type based on given images. After experimenting with various feature engineering techniques, the deployed model's testing accuracy hovers around 92%. 
+This project deploys a pre-trained CNN - Deep Learning model called Xception to predict flowers types based on given images. After experimenting with various feature engineering techniques, the deployed model's testing accuracy hovers around 92%. 
 
 The model is fine-tuned and re-trained with given training and validation images. The code is deployed to Kaggle Competition page at https://www.kaggle.com/competitions/tpu-getting-started/overview.
 
