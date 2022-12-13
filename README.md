@@ -1,10 +1,7 @@
 
-Flower Classification using TPU - Data 6150 Class Term Project
+## Flower Classification using TPU - Data 6150 Class Term Project
 
 I build a machine learning model that identifies the type of flowers in a dataset of images.
-
-# Deployed Data Science Project Sample
-
 
 ## Introduction
 The objective of this project is to build a machine learning model that identifies the type of flowers in a dataset of images. 
@@ -22,51 +19,56 @@ The model processing and training are conducted using a Jupyter Notebook and is 
 When used with TPUs, datasets need to be stored in a Google Cloud Storage bucket. You can use data from any public GCS bucket by giving its path. The following retrieves the GCS path for my dataset.
 
 <img width="526" alt="Screen Shot 2022-12-13 at 13 07 06" src="https://user-images.githubusercontent.com/12528641/207411220-ae27e383-e1a5-4345-88fa-8eacfa165ec9.png">
-
 Google Cloud Store Path :  gs://kds-815d280b11fe375202da79512bafaf620b4095ed95aae36da10b22b1
 
-The data has over 1,300 samples with 6 features: age, sex, BMI, no of children, smoker, region.  
-The objective is to predict hospital charges.
-The dataset can found online at [git](https://github.com/stedy/Machine-Learning-with-R-datasets)[4]. Many example solutions and analysis can be found at [kaggle](https://www.kaggle.com/mirichoi0218/insurance) [5]
+Number of training images : 12753 
+Number of validation images : 3712 
+Number of test images : 7382
+
+The data has 12753 training images, 3712 validation images and 7382 test images. 
+Training dataset has (12753, 512, 512, 3) images data and (12753,) label data.
+Validation dataset has (3712, 512, 512, 3) images data and (3712,) label data. 
+Test dataset has (7382, 512, 512, 3) images data and (7382,) id data. 
+
+The objective is to predict flower type(label data) of test images.
 
 Data preview: 
-![data screenshot](./insurance_data.png)
 
-
-Note that data has categorical features in 3 cols: sex, smoker, and region.
-I used OneHotEncoder/ColumnTransformer on these features and kept the rest of the features as is.
-When using a linear regression model, the learning accuracy shoots up from 12% to 75% with this transformation. 
-
-We then create a pipeline for automating the process for new data. I also experimented with different imputer strategies for missing data and added second-degree polynomial features for both the numeric and categorical data. The shown values are obtained by performing a grid search over these arguments. 
-Pipeline preview: 
-![pipeline screenshot](./pipeline.png)
-
-I finally saved the model via joblib to be used for predictions by the web app. 
+<img width="838" alt="Screen Shot 2022-12-13 at 13 24 37" src="https://user-images.githubusercontent.com/12528641/207414730-cfbb7dde-8241-462a-9b9a-5f5812dae503.png">
 
 ## Methods
 
 Tools:
-- NumPy, SciPy, Pandas, and Scikit-learn for data analysis and inference
-- Streamlit (st) for web app design
-- GitHub and Heroku for web app deployment and hosting/version control
-- VS Code as IDE
+- NumPy, Pandas, Pyplot and Tensorflow for data analysis and inference
+- GitHub for hosting/version control
 
-Inference methods used with Scikit:
-- linear regression model
-- Features: OneHotEncoder/ColumnTransformer, StandardScaler, PolynomialFeatures and SimpleImputer for missing values
-- Pipeline to tie it all together
-- GridSearchCV for hyperparameter tuning
+Inference methods used with Tensorflow:
+- Transfer Learning
+- Convolutional Neural Network - Deep Learning
+- Pre-trained Model -> Fine Tune -> Re-train
+- Adaptive Learning Rate
+
+<img width="232" alt="Screen Shot 2022-12-13 at 00 27 28" src="https://user-images.githubusercontent.com/12528641/207415810-f52189ce-cb9a-4137-b236-cd536c510ac2.png">
 
 ## Results
-The app is live at https://ds-example.herokuapp.com/
-It allows for online and batch processing as designed by the pycaret post:
-- Online: User inputs each feature manually for predicting a single insurance cost
-![online screenshot](./online.png)
-- Batch: It allows the user to upload a CSV file with the 6 features for predicting many instances at once. 
-  - An [X_test.csv](./X_test.csv) is provided as a batch processing sample. Corresponding insurance prices are available at [y_test.csv](./y_test.csv)
-![batch screenshot](./batch.png)
 
-I am not adding any visualizations to this example, though st supports it. Couple good examples are [here](https://share.streamlit.io/tylerjrichards/book_reco/books.py) and [here](https://share.streamlit.io/streamlit/demo-uber-nyc-pickups/)
+The code is at https://www.kaggle.com/code/abdurrahmanzeybey/flower-classification-data-6150
+
+Training Process:
+During 15 iteration of training, learning rate starts at 0.000050 and ends at 0.000019. Training and validation accuracy improvement:
+
+<img width="378" alt="Screen Shot 2022-12-13 at 13 38 26" src="https://user-images.githubusercontent.com/12528641/207417492-fc1073cd-9521-42c0-8e54-c8e8860069b0.png">
+
+Prediction and Submission:
+Test data comes with unlabeled, so I predict its labels and submit them to the Kaggle.
+
+<img width="185" alt="Screen Shot 2022-12-13 at 13 40 18" src="https://user-images.githubusercontent.com/12528641/207417839-9fc6586b-c17e-4afe-a92f-6f8962c1790a.png">
+
+Kaggle evaluates my submission on macro F1 score. My score is calculated as follows:
+<img width="263" alt="Screen Shot 2022-12-13 at 13 41 46" src="https://user-images.githubusercontent.com/12528641/207418107-7e875c96-1469-4f95-ae84-3aaba0792b61.png">
+
+After 4 submission, I achieve 0.92102 score.
+<img width="1217" alt="Screen Shot 2022-12-13 at 13 44 09" src="https://user-images.githubusercontent.com/12528641/207418520-dc1527a2-9f2a-4d93-86c2-d4c65de7db0b.png">
 
 ## Discussion
 Experimenting with various feature engineering techniques and regression algorithms, I found that linear regression with one-hot encoding provided one of the highest accuracies despite its simpler nature. Across all these trials, my training accuracy was around 75% to 77%. Thus, I decided the deploy the pipelined linear regression model. The data was split 80/20 for testing and has a test accuracy of 73%. 
