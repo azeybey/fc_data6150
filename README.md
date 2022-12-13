@@ -19,6 +19,7 @@ The model processing and training are conducted using a Jupyter Notebook and is 
 When used with TPUs, datasets need to be stored in a Google Cloud Storage bucket. You can use data from any public GCS bucket by giving its path. The following retrieves the GCS path for my dataset.
 
 <img width="526" alt="Screen Shot 2022-12-13 at 13 07 06" src="https://user-images.githubusercontent.com/12528641/207411220-ae27e383-e1a5-4345-88fa-8eacfa165ec9.png">
+
 Google Cloud Store Path :  gs://kds-815d280b11fe375202da79512bafaf620b4095ed95aae36da10b22b1
 
 Number of training images : 12753 
@@ -26,6 +27,7 @@ Number of validation images : 3712
 Number of test images : 7382
 
 The data has 12753 training images, 3712 validation images and 7382 test images. 
+
 Training dataset has (12753, 512, 512, 3) images data and (12753,) label data.
 Validation dataset has (3712, 512, 512, 3) images data and (3712,) label data. 
 Test dataset has (7382, 512, 512, 3) images data and (7382,) id data. 
@@ -48,6 +50,8 @@ Inference methods used with Tensorflow:
 - Pre-trained Model -> Fine Tune -> Re-train
 - Adaptive Learning Rate
 
+Transfer learning (TL) is a research problem in machine learning (ML) that focuses on storing knowledge gained while solving one problem and applying it to a different but related problem.[3] For example, knowledge gained while learning to recognize cars could apply when trying to recognize flowers. 
+
 <img width="232" alt="Screen Shot 2022-12-13 at 00 27 28" src="https://user-images.githubusercontent.com/12528641/207415810-f52189ce-cb9a-4137-b236-cd536c510ac2.png">
 
 ## Results
@@ -65,9 +69,11 @@ Test data comes with unlabeled, so I predict its labels and submit them to the K
 <img width="185" alt="Screen Shot 2022-12-13 at 13 40 18" src="https://user-images.githubusercontent.com/12528641/207417839-9fc6586b-c17e-4afe-a92f-6f8962c1790a.png">
 
 Kaggle evaluates my submission on macro F1 score. My score is calculated as follows:
+
 <img width="263" alt="Screen Shot 2022-12-13 at 13 41 46" src="https://user-images.githubusercontent.com/12528641/207418107-7e875c96-1469-4f95-ae84-3aaba0792b61.png">
 
 After 4 submission, I achieve 0.92102 score.
+
 <img width="1217" alt="Screen Shot 2022-12-13 at 13 44 09" src="https://user-images.githubusercontent.com/12528641/207418520-dc1527a2-9f2a-4d93-86c2-d4c65de7db0b.png">
 
 ## Discussion
@@ -94,7 +100,7 @@ More info about st hosting is [here](https://docs.streamlit.io/en/stable/deploy_
 
 [2] [https://en.wikipedia.org/wiki/Tensor_Processing_Unit]
 
-[3] [The pycaret post](https://towardsdatascience.com/build-and-deploy-machine-learning-web-app-using-pycaret-and-streamlit-28883a569104)
+[3] [https://en.wikipedia.org/wiki/Transfer_learning]
 
 [4] [Insurance dataset: git](https://github.com/stedy/Machine-Learning-with-R-datasets)
 
