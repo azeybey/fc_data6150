@@ -6,15 +6,15 @@ I build a machine learning model that identifies the type of flowers in a datase
 ## Introduction
 The objective of this project is to build a machine learning model that identifies the type of flowers in a dataset of images. 
 
-This project is inspired by the [the Kaggle TPU Competition](https://www.kaggle.com/competitions/tpu-getting-started/) [3]. 
+This project is inspired by the [the Kaggle TPU Competition](https://www.kaggle.com/competitions/tpu-getting-started/) [1]. 
 
-I used Tensor Processing Units to accelerate my project. TPUs are powerful hardware accelerators specialized in deep learning tasks. They were developed (and first used) by Google to process large image databases, such as extracting all the text from Street View. 
+I used Tensor Processing Units to accelerate my project. Tensor Processing Unit (TPU) is an AI accelerator application-specific integrated circuit (ASIC) developed by Google for neural network machine learning, using Google's own TensorFlow software [2]. They were developed (and first used) by Google to process large image databases, such as extracting all the text from Street View. 
 
 Furtunetely, Kaggle offers accessing to 30 hours of free TPU time every week for its users. So, I deploy my notebook to Kaggle to utilize its processing power.
 
 ## Selection of Data
 
-The model processing and training are conducted using a Jupyter Notebook and is available [here](https://github.com/memoatwit/dsexample/blob/master/Insurance%20-%20Model%20Training%20Notebook.ipynb).
+The model processing and training are conducted using a Jupyter Notebook and is available [here](https://github.com/azeybey/fc_data6150/blob/main/flower-classification-data-6150.ipynb).
 
 When used with TPUs, datasets need to be stored in a Google Cloud Storage bucket. You can use data from any public GCS bucket by giving its path. The following retrieves the GCS path for my dataset.
 
@@ -90,9 +90,9 @@ More info about st hosting is [here](https://docs.streamlit.io/en/stable/deploy_
 
 
 ## References
-[1] [GitHub Integration (Heroku GitHub Deploys)](https://devcenter.heroku.com/articles/github-integration)
+[1] [https://www.kaggle.com/competitions/tpu-getting-started/]
 
-[2] [Streamlit](https://www.streamlit.io/)
+[2] [https://en.wikipedia.org/wiki/Tensor_Processing_Unit]
 
 [3] [The pycaret post](https://towardsdatascience.com/build-and-deploy-machine-learning-web-app-using-pycaret-and-streamlit-28883a569104)
 
