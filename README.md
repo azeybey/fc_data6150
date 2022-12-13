@@ -54,6 +54,10 @@ Transfer learning (TL) is a research problem in machine learning (ML) that focus
 
 <img width="232" alt="Screen Shot 2022-12-13 at 00 27 28" src="https://user-images.githubusercontent.com/12528641/207415810-f52189ce-cb9a-4137-b236-cd536c510ac2.png">
 
+
+<img width="517" alt="Screen Shot 2022-12-13 at 13 59 15" src="https://user-images.githubusercontent.com/12528641/207421408-d154d16d-c32e-49e7-8dea-f7125a0cff3a.png">
+
+
 ## Results
 
 The code is at https://www.kaggle.com/code/abdurrahmanzeybey/flower-classification-data-6150
@@ -77,22 +81,19 @@ After 4 submission, I achieve 0.92102 score.
 <img width="1217" alt="Screen Shot 2022-12-13 at 13 44 09" src="https://user-images.githubusercontent.com/12528641/207418520-dc1527a2-9f2a-4d93-86c2-d4c65de7db0b.png">
 
 ## Discussion
-Experimenting with various feature engineering techniques and regression algorithms, I found that linear regression with one-hot encoding provided one of the highest accuracies despite its simpler nature. Across all these trials, my training accuracy was around 75% to 77%. Thus, I decided the deploy the pipelined linear regression model. The data was split 80/20 for testing and has a test accuracy of 73%. 
+Experimenting with various CNN models, I found that TensorFlow Xception model provided one of the highest accuracies despite its simpler nature. It is pre-trained and is provided to us through the Keras Applications Library. It was originaly trained 350 Millions images that included 17000 classes. My goal was to change this model to classify photos of flowers into their species.
 
-I looked at some kaggle notebooks studying this problem and found this to be an acceptable level of success for this dataset. I am interested in analyzing the training data further to understand why a higher accuracy can't be easily achieved, especially with non-linear kernels. 
+I looked at some kaggle notebooks studying this problem and found this to be an acceptable level of success for this dataset. I am interested in analyzing the training data further to understand why a higher accuracy can't be easily achieved.
 
-One unexpected challenge was the free storage capacity offered by Heroku. I experimented with various versions of the libraries listed in `requirements.txt` to achieve a reasonable memory footprint. While I couldn't include the latest pycaret library due to its size, the current setup does include TensorFlow 2.3.1 (even though not utilized by this sample project) to illustrate how much can be done in Heroku's free tier: 
-```
-Warning: Your slug size (326 MB) exceeds our soft limit (300 MB) which may affect boot time.
-```
+One unexpected challenge was the size of the dataset. Kaggle provides us 12753 training and 3712 validation images which are small compare to the big model, like Xception was trained 350 Millions of images as I mentioned before. 
+
+On the other hand, if I had enough time, I could work on data augmentation matrices that could be applied to the training images to enrich the data. It would increase the level of success.
 
 ## Summary
-This sample project deploys a supervised regression model to predict insurance costs based on 6 features. After experimenting with various feature engineering techniques, the deployed model's testing accuracy hovers around 73%. 
 
-The web app is designed using Streamlit, and can do online and batch processing, and is deployed using Heroku and Streamlit. The Heroku app is live at https://ds-example.herokuapp.com/.
- 
-Streamlit is starting to offer free hosting as well. The same repo is also deployed at [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/memoatwit/dsexample/app.py)  
-More info about st hosting is [here](https://docs.streamlit.io/en/stable/deploy_streamlit_app.html).
+This project deploys a pre-trained CNN - Deep Learnin model called Xception to predict flowers type based on given images. After experimenting with various feature engineering techniques, the deployed model's testing accuracy hovers around 92%. 
+
+The model is fine-tuned and re-trained with given training and validation images. The code is deployed to Kaggle Competition page at https://www.kaggle.com/competitions/tpu-getting-started/overview.
 
 
 ## References
@@ -102,6 +103,3 @@ More info about st hosting is [here](https://docs.streamlit.io/en/stable/deploy_
 
 [3] [https://en.wikipedia.org/wiki/Transfer_learning]
 
-[4] [Insurance dataset: git](https://github.com/stedy/Machine-Learning-with-R-datasets)
-
-[5] [Insurance dataset: kaggle](https://www.kaggle.com/mirichoi0218/insurance)
