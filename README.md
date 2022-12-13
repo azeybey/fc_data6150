@@ -7,17 +7,23 @@ I build a machine learning model that identifies the type of flowers in a datase
 
 
 ## Introduction
-The objective of this project is to build a machine learning model that identifies the type of flowers in a dataset of images. I was curious to learn if I could create and push such a project in a few hours. Your objective may be to provide a data-insightful solution to a specific problem that excites you using the tools discussed (or related to) in this course.
+The objective of this project is to build a machine learning model that identifies the type of flowers in a dataset of images. 
 
-This project is inspired by the [the pycaret post](https://www.kaggle.com/competitions/tpu-getting-started/) [3]. I kept their web app setup but replaced pycaret with pre-preprocessing using numpy/pandas and predictions using scikit. This allowed my free-tier Heroku pod to be significantly smaller and faster. 
+This project is inspired by the [the Kaggle TPU Competition](https://www.kaggle.com/competitions/tpu-getting-started/) [3]. 
 
-Since Heroku also enables integration with GitHub, it also [automatically builds and releases](https://devcenter.heroku.com/articles/github-integration) any updates to my git repo [1]. 
+I used Tensor Processing Units to accelerate my project. TPUs are powerful hardware accelerators specialized in deep learning tasks. They were developed (and first used) by Google to process large image databases, such as extracting all the text from Street View. 
 
-I wanted to ease the web app development and [Streamlit](https://www.streamlit.io/) made this possible [2]. It is an open-source library that focuses on data science and ML web app development. 
+Furtunetely, Kaggle offers accessing to 30 hours of free TPU time every week for its users. So, I deploy my notebook to Kaggle to utilize its processing power.
 
 ## Selection of Data
 
 The model processing and training are conducted using a Jupyter Notebook and is available [here](https://github.com/memoatwit/dsexample/blob/master/Insurance%20-%20Model%20Training%20Notebook.ipynb).
+
+When used with TPUs, datasets need to be stored in a Google Cloud Storage bucket. You can use data from any public GCS bucket by giving its path. The following retrieves the GCS path for my dataset.
+
+<img width="526" alt="Screen Shot 2022-12-13 at 13 07 06" src="https://user-images.githubusercontent.com/12528641/207411220-ae27e383-e1a5-4345-88fa-8eacfa165ec9.png">
+
+Google Cloud Store Path :  gs://kds-815d280b11fe375202da79512bafaf620b4095ed95aae36da10b22b1
 
 The data has over 1,300 samples with 6 features: age, sex, BMI, no of children, smoker, region.  
 The objective is to predict hospital charges.
